@@ -12,6 +12,10 @@
 
 <link rel="stylesheet" href="st1.css">
 <style>
+:root {
+  --blue: #051e3d;
+  --white: #fae1c2;
+}
   *{
     box-sizing: border-box;
   }
@@ -22,12 +26,13 @@
 
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;  
+  background: var(--blue);  
 }
  
 
 ::-webkit-scrollbar-thumb {
-  background: #888; border-radius:5px;
+  background: var(--white); 
+  border-radius:5px;
 }
 
 
@@ -37,9 +42,9 @@
 body {
   margin: 0;
   font-family:  Verdana;
-  background-color: #051e3d;
+  background-color: var(--blue);
    justify-content: center;
-   color:white;
+   color:var(--white);
 }
 html {
   scroll-behavior: smooth;
@@ -47,7 +52,7 @@ html {
 
 .topnav {
   text-align: center;
-  background-color: #051e3d;
+  background-color: var(--blue);
   position: fixed;
   width: 100%;z-index: 1;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 10);
@@ -58,7 +63,7 @@ html {
 }
 .topnav a {
   float:right;
-  color: #f2f2f2;
+  color: var(--white);
   text-align: center;
   padding: 15px ;
   text-decoration: none;
@@ -70,7 +75,10 @@ float: left;
 padding: 0px 0px;
 
 }
-
+.topnav a.theme {
+  float: right;
+padding: 0px 0px;
+}
 
 .topnav  a.lo:hover{
   border-bottom: 5px;
@@ -128,9 +136,9 @@ padding: 30px 15px;
 .intro-quote {
   padding: 15px;
   text-align: center;
-  background-color:#051e3d;
+  background-color:var(--blue);
   background-size: cover;
-  color: white;
+  color: var(--white);
  font-family: Dancing Script;
   font-size: 14px;
   word-spacing: 10px;
@@ -150,16 +158,16 @@ svg{
       transform: translate(-50%,-50%);
     }
      svg:hover path{
-      stroke:#ffffff;
-       fill:#ffffff;
+      stroke:var(--white);
+       fill:var(--white);
        stroke-dasharray: 1000;
        opacity: 10;
        animation: animate 3s cubic-bezier(0,0.23,1,.1);
        animation-iteration-count: infinite;
     }
 path{
-      stroke:#ffffff;
-       fill:#ffffff;
+      stroke:var(--white);
+       fill:var(--white);
        stroke-dasharray: 1000;
        opacity: 10;
        animation: animate 3s cubic-bezier(0,0.23,1,.1);
@@ -187,7 +195,7 @@ path{
       100%{
         opacity: 10;
         fill:rgba(255,255,255,1);
-        stroke: #ffffff;
+        stroke: var(--white);
         stroke-dashoffset:0;
       }
     }
@@ -203,7 +211,7 @@ path{
     padding: 40px;
   text-align: center;
   
-  color: white;
+  color: var(--white);
  font-family: Dancing Script;
   font-size: 10px;word-spacing: 10px;
   }
@@ -215,7 +223,7 @@ path{
   z-index: 1;
   top: 0;
   right: 0;
-  background-color: #051e3d;
+  background-color: var(--blue);
   overflow-x: hidden;
   transition: 0.5s;
 }
@@ -320,9 +328,9 @@ margin: auto;
   font-size: 16px;
 }
  .button {
-  background-color: #051e3d;
+  background-color: var(--blue);
   border: none;
-  color: white;
+  color: var(--white);
   padding: 15px 30px;
   text-align: center;
   text-decoration: none;
@@ -334,7 +342,7 @@ margin: auto;
   border-radius: 25px;
 }
  .button1 {
-  background-color: white;
+  background-color: var(--white);
   border: none;
   color: #051e3d;
   padding: 15px 30px;
@@ -354,7 +362,7 @@ transition: .5s;
 
 }
  .button:hover {
-background:white;
+background:var(--white);
   box-shadow:0 0 20px #818181;
 transition: .5s;
 color:#051e3d;
@@ -395,8 +403,8 @@ box-shadow:0 0 40px #818181;
 .education .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 10);
   margin: 8px;
-  background-color: #051e3d;
-  color:white;
+  background-color: var(--blue);
+  color:var(--white);
   padding: 5px;
   
 
@@ -459,8 +467,8 @@ box-shadow:0 0 40px #818181;
 .experience .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 10);
   margin: 8px;
-  background-color: #051e3d;
-  color:white;
+  background-color: var(--blue);
+  color:var(--white);
   padding: 5px;
   
 
@@ -482,7 +490,7 @@ box-shadow:0 0 40px #818181;
 }
 
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 1000px) {
   .experience .column {
     width: 100%;
     display: block;
@@ -514,7 +522,7 @@ box-shadow:0 0 40px #818181;
 }
 .fa{
   
-  background-color: #051e3d;
+  background-color: var(--blue);
   padding: 20px;
   margin: 10px;
   border-radius: 50%;
@@ -523,51 +531,54 @@ box-shadow:0 0 40px #818181;
 }
 
 .fa-linkedin{
-  color:white;
+  color:var(--white);
   font-size: 30px;
   text-decoration: none;
 
 }
 .fa-linkedin:hover{
-  color:#051e3d;
+  color:var(--blue);
   transition: .5s;
-  text-shadow: 0 0 5px white;
+  text-shadow: 0 0 5px var(--white);
 }
 .fa-github{
-  color:white;
+  color:var(--white);
   font-size: 30px;
   text-decoration: none;
 
 }
 .fa-github:hover{
-  color:#051e3d;
+  color:var(--blue);
   transition: .5s;
-  text-shadow: 0 0 5px white;
+  text-shadow: 0 0 5px var(--white);
 }
 .fa-instagram{
-  color:white;
+  color:var(--white);
   font-size: 30px;
   text-decoration: none;
 
 }
 .fa-instagram:hover{
- color:#051e3d;
+ color:var(--blue);
   transition: .5s;
-  text-shadow: 0 0 5px white;
+  text-shadow: 0 0 5px var(--white);
 }
 .fa-envelope{
-  color:white;
+  color:var(--white);
   font-size: 30px;
   text-decoration: none;
 
 }
 .fa-envelope:hover{
- color:#051e3d;
+ color:var(--blue);
   transition: .5s;
-  text-shadow: 0 0 5px white;
+  text-shadow: 0 0 5px var(--white);
 }
 
-
+#demo {
+  background-color: transparent;
+  font-size: 17px;
+}
 
 @media screen and (max-width: 650px) {
 
@@ -576,14 +587,15 @@ box-shadow:0 0 40px #818181;
 }
 
 }
+
 .btn {
    cursor: pointer;
    position: relative;
    padding: 10px 20px;
    margin: 10px;
-   background: #051e3d;
+   background: var(--blue);
    font-size: 18px;
-   color: white;
+   color: var(--white);
    border-top-right-radius: 10px;
    border-bottom-left-radius: 10px;
    transition: all 1s;
@@ -597,38 +609,36 @@ box-shadow:0 0 40px #818181;
    width: 10px;
    height: 10px;
    position: absolute;
-   border: 0px solid #fff;
+   border: 0px solid var(--white);
    transition: all 1s;
 }
  .btn:after {
    top: -1px;
    left: -1px;
-   border-top: 5px solid white;
-   border-left: 5px solid white;
+   border-top: 5px solid var(--white);
+   border-left: 5px solid var(--white);
 }
  .btn:before {
    bottom: -1px;
    right: -1px;
-   border-bottom: 5px solid white;
-   border-right: 5px solid white;
+   border-bottom: 5px solid var(--white);
+   border-right: 5px solid var(--white);
 }
  .btn:hover {
    border-top-right-radius: 0px;
    border-bottom-left-radius: 0px;
-
 }
  .btn:hover:before, .btn:hover:after {
    width: 100%;
    height: 100%;
-
 }
 .btn1 {
    cursor: pointer;
    position: relative;
    padding: 10px 20px;
-   background: white;
+   background: var(--white);
    font-size: 18px;
-   color: #051e3d;
+   color: var(--blue);
    border-top-right-radius: 10px;
    border-bottom-left-radius: 10px;
    transition: all 1s;
@@ -689,6 +699,238 @@ box-shadow:0 0 40px #818181;
     transition: width .75s;
 }
  
+a.theme{
+  padding: 0px;
+  margin: 0px;
+}
+@media screen and (max-width: 600px) {
+img#theme1 {
+  margin: 0px;
+  padding-top: 5px;
+}
+}
+img#theme {
+  margin: 0px;
+  padding-top: 17px;
+  margin-right: 5px;
+}
+
+
+
+
+
+
+
+
+.containercard {
+  width: 90%;
+  margin: 10px auto;
+  text-align: center;
+}
+
+
+.rowcard {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-flow: wrap;
+}
+
+.cardcard {
+  width: 30%;
+
+  background: var(--blue);
+
+  margin-bottom: 25px;
+ 
+}
+
+.card-headercard {
+  text-align: center;
+  padding: 10px 10px;
+  background-color: var(--blue);
+  color: var(--white);
+  font-size: 14px;
+}
+
+.card-bodycard {
+  padding: 30px 20px;
+  text-align: center;
+  font-size: 18px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 10);
+}
+
+.card-bodycard .btn {
+  display: block;
+  color: var(--white);
+  text-align: center;
+  background-color: var(--blue);
+  margin-top: 30px;
+  text-decoration: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 5);
+  padding: 10px 5px;
+}
+.card-bodycard .btn:hover{
+  background:transparent;
+  box-shadow:0 0 20px #818181;
+transition: .5s;
+color:white;
+
+}
+.cardcard:hover {
+ 
+ box-shadow:0 0 40px #818181;
+
+}
+
+@media screen and (max-width: 1000px) {
+  .cardcard {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .containercard {
+    width: 100%;
+  }
+
+  .headingcard {
+    padding: 20px;
+    font-size: 20px;
+  }
+
+  .cardcard {
+    width: 80%;
+  }
+}
+
+.reveal{
+  position: relative;
+  transform: translateY(150px);
+  opacity: 0;
+  transition: all 1s ease;
+}
+
+.reveal.active{
+  transform: translateY(0px);
+  opacity: 1;
+}
+.reveal1{
+  position: relative;
+  left:-100px;
+  opacity: 0;
+  transition: all 1s ease;
+}
+
+.reveal1.active{
+  left:0;
+  opacity: 1;
+}
+
+.foot{
+  text-align: center;
+}
+
+.contactme {
+  padding: 20px;
+  width: 50%;
+  margin: 0 auto;
+  position: relative;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 10);
+}
+.contactme:hover{
+box-shadow:0 0 40px #818181;
+
+}
+@media screen and (max-width: 620px) {
+  .contactme {
+    width: 100%;
+   padding: 40px;
+  }
+
+ 
+}
+
+
+
+
+#contact input[type="text"],
+#contact input[type="email"],
+#contact textarea {
+  width: 100%;
+  border: 1px solid grey;
+  background: var(--blue);
+  margin: 0 0 5px;
+  padding: 10px;
+  color: var(--white);
+  font-family: Verdana;
+}
+
+
+
+#contact textarea {
+  height: 150px;
+  max-width: 100%;
+   
+}
+
+button {
+  border: none;
+}
+.submit {
+   cursor: pointer;
+   position: relative;
+   padding: 10px 20px;
+   margin: 10px;
+   background: var(--blue);
+   font-size: 18px;
+   color: var(--white);
+   border-top-right-radius: 10px;
+   border-bottom-left-radius: 10px;
+   transition: all 1s;
+   box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 10);
+
+}
+
+
+ .submit:after, .submit:before {
+   content: " ";
+   width: 10px;
+   height: 10px;
+   position: absolute;
+   border: 0px solid var(--white);
+   transition: all 1s;
+}
+ .submit:after {
+   top: -1px;
+   left: -1px;
+   border-top: 5px solid var(--white);
+   border-left: 5px solid var(--white);
+}
+ .submit:before {
+   bottom: -1px;
+   right: -1px;
+   border-bottom: 5px solid var(--white);
+   border-right: 5px solid var(--white);
+}
+ .submit:hover {
+   border-top-right-radius: 0px;
+   border-bottom-left-radius: 0px;
+
+}
+ .submit:hover:before, .submit:hover:after {
+   width: 100%;
+   height: 100%;
+
+}
+
+
+
+
+
+
+
+
+
 </style>
 </head>
 
@@ -697,15 +939,16 @@ box-shadow:0 0 40px #818181;
 
 <div class="topnav" id="myTopnav">
   
-<a href="https://aswininfant.me/" class="lo"><img src="llll.png"  style="width:60px" ></a>
-
-  <a class="cool-link" href="#contactme" >Contact </a>
+<a href="https://aswininfant.me/" class="lo"><img src="llll.png" id="logotheme" style="width:60px" ></a>
+<a class="theme"><img src="moon5.png"  id="theme" style="width:20px" onclick="myFunction()"></a>
+  <a class="cool-link" href="#contactme" >Contact</a>
   <a class="cool-link" href="#works">Projects</a>
-    <a class="cool-link" href="#skills">Skills</a>
   <a class="cool-link" href="#experience">Experience</a>
   <a class="cool-link" href="#education">Education</a>
   <a class="cool-link" href="#about">About</a>
   <a style="font-size:30px;cursor:pointer" class="icon" onclick="openNav()">&#9776; </a>
+  <a class="icon"><img src="moon5.png"  id="theme1" style="width:30px" onclick="myFunction()"></a>
+
   
 </div>
 <div id="myNav" class="overlay">
@@ -1168,7 +1411,7 @@ box-shadow:0 0 40px #818181;
           <p>
             A front-end product webpage submitted in a competition<br><br><br> HTML // CSS // Javascript<br><br>
           </p>
-          <a href="https://aswininfant.me/boosted" target="_blank" class="btn">View</a>
+          <a href="https://aswininfant.me/boosted" target="_blank" class="btn" style="color: var(--white);">View</a>
         </div>
       </div>
       
@@ -1182,7 +1425,7 @@ box-shadow:0 0 40px #818181;
           <p>
             Visualization of the different sorting algorithms<br><br><br> HTML // CSS // Javascript // Algorithms
           </p>
-          <a href="https://aswininfant.me/SortingVisualizer" target="_blank" class="btn">View</a>
+          <a href="https://aswininfant.me/SortingVisualizer" target="_blank" class="btn" style="color: var(--white);">View</a>
           
         </div>
       </div>
@@ -1196,7 +1439,7 @@ box-shadow:0 0 40px #818181;
            Command line dictionary tool using foutytwowords words api<br><br><br> NodeJS // Javascript 
            <br><br>
           </p>
-          <a href="https://github.com/AswinInfant/Command-Line-Dictionary-Tool" target="_blank" class="btn">View</a>
+          <a href="https://github.com/AswinInfant/Command-Line-Dictionary-Tool" target="_blank" class="btn" style="color: var(--white);">View</a>
         </div>
       </div>
       <div class="cardcard">
@@ -1208,7 +1451,7 @@ box-shadow:0 0 40px #818181;
            An App that provides word dictionary APIs<br><br><br> NodeJS // ExpressJS // SQL 
            <br><br>
           </p>
-          <a href="https://github.com/AswinInfant/word-api" target="_blank" class="btn">View</a>
+          <a href="https://github.com/AswinInfant/word-api" target="_blank" class="btn" style="color: var(--white);">View</a>
         </div>
       </div>
 
@@ -1311,6 +1554,28 @@ box-shadow:0 0 40px #818181;
 
 <script type="text/javascript">
  
+function myFunction() { 
+var root = document.querySelector(':root');
+var x =getComputedStyle(document.documentElement).getPropertyValue('--blue');
+
+console.log(x);
+    if (x=="#fae1c2") { 
+    root.style.setProperty('--blue', '#051e3d');
+    root.style.setProperty('--white', '#fae1c2');
+    document.getElementById("theme").src = "moon5.png";
+    document.getElementById("logotheme").src = "llll.png";
+    document.getElementById("theme1").src = "moon5.png";
+  }
+    else { 
+      document.getElementById("theme").src = "moon6.png";
+      document.getElementById("theme1").src = "moon6.png";
+      document.getElementById("logotheme").src = "logolight.png";
+      root.style.setProperty('--blue', '#fae1c2');
+      root.style.setProperty('--white', '#051e3d');
+}
+}
+
+
 function openNav() {
   document.getElementById("myNav").style.width = "25%";
 }
