@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <p>
+    import pandas as pd<br>
+import numpy as np<br>
+import matplotlib.pyplot as plt<br>
+%matplotlib inline<br>
+<br>
+dataset = pd.read_csv('D:\Datasets\student_scores.csv')<br>
+<br>
+from sklearn.model_selection import train_test_split<br>
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)<br>
+<br>
+from sklearn.linear_model import LinearRegression<br>
+regressor = LinearRegression()<br>
+regressor.fit(X_train, y_train)<br>
+<br>
+print(regressor.intercept_)<br>
+print(regressor.coef_)<br>
+<br>
+y_pred = regressor.predict(X_test)<br>
+<br>
+from sklearn import metrics<br>
+print('Mean Absolute Error:', metrics.mean_absolute_error(y_test, y_pred))<br>
+print('Mean Squared Error:', metrics.mean_squared_error(y_test, y_pred))<br>
+print('Root Mean Squared Error:', np.sqrt(metrics.mean_squared_error(y_test, y_pred)))<br>
+  </p>
+<a href="https://stackabuse.com/linear-regression-in-python-with-scikit-learn/">Link</a>
+<a href="https://www.geeksforgeeks.org/k-nearest-neighbor-algorithm-in-python/">K-nearest</a>
+</body>
+</html>
