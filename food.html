@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <style>
+     th, td {
+      border:2px solid black;
+      text-align: center;
+    }
+    .inp {
+      padding: 10px;
+      margin: auto;
+  width: 50%;
+    }
+    table {
+      padding: 10px;
+      margin: auto;
+  width: 50%;
+  border: 1px solid red;
+    }
+    .inptext{
+      padding: 10px;
+      margin: auto;
+      width: 100%;
+    }
+    .btn{
+      padding: 10px;
+      margin-top: 10px;
+    }
+    </style>
+<body>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+<div class ="inp">
+<input type="text" class="inptext" placeholder="Enter the food"><br>
+<button onclick="def()" class="btn">Get details</button>
+</div>
+<div id="demo2">
+</div>
+<table id="displaytable" style="display:none;">
+  <tr>
+    <th>Calories</th>
+    <th>Fat</th>
+    <th>Sugar</th>
+    <th>Fiber</th>
+    <th>Carbohydrates</th>
+    <th>Protein</th>
+  </tr>
+  <tr>
+    <td id="1"></td>
+    <td id="2"></td>
+    <td id="3"></td>
+    <td id="4"></td>
+    <td id="5"></td>
+    <td id="6"></td>
+  </tr>
+</table>
+
+<script>
+function def() {
+
+  const word = document.querySelector('input').value;
+  def1(word);
+}
+function def1(word) {
+var query = word;
+var xmlhttp= new XMLHttpRequest();
+xmlhttp.open("GET",'https://api.calorieninjas.com/v1/nutrition?query='+query,true);
+xmlhttp.setRequestHeader('X-Api-Key', 'YXC9wHz0W/ebIP7HTJvnSA==6I0nMhcEbdoFzA5R')
+xmlhttp.onreadystatechange = function() {
+    if(xmlhttp.readyState ===4 &&xmlhttp.status===200) {
+      var data=JSON.parse(xmlhttp.responseText);
+     console.log(data);
+     document.getElementById("displaytable").style.display = "table";
+     document.getElementById("1").innerHTML =data.items[0].calories;
+     document.getElementById("2").innerHTML =data.items[0].fat_total_g;
+     document.getElementById("3").innerHTML =data.items[0].sugar_g;
+     document.getElementById("4").innerHTML =data.items[0].fiber_g;
+     document.getElementById("5").innerHTML =data.items[0].carbohydrates_total_g;
+     document.getElementById("6").innerHTML =data.items[0].protein_g;
+    }
+  };
+  xmlhttp.send();
+}
+</script>
+</body>
+</html>

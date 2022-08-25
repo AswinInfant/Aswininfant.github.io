@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <p>
+    import pandas as pd<br>
+import numpy as np<br>
+import matplotlib.pyplot as plt<br>
+import seaborn as sns<br>
+<br>
+raw_data = pd.read_csv('kyphosis.csv')<br>
+raw_data.columns<br>
+<br>
+raw_data.info()<br>
+sns.pairplot(raw_data, hue = 'Kyphosis')<br>
+<br>
+from sklearn.model_selection import train_test_split<br>
+x = raw_data.drop('Kyphosis', axis = 1)<br>
+y = raw_data['Kyphosis']<br>
+x_training_data, x_test_data, y_training_data, y_test_data = train_test_split(x, y, test_size = 0.3)<br>
+<br>
+from sklearn.tree import DecisionTreeClassifier<br>
+model = DecisionTreeClassifier()<br>
+model.fit(x_training_data, y_training_data)<br>
+predictions = model.predict(x_test_data)<br>
+<br>
+from sklearn.metrics import classification_report<br>
+from sklearn.metrics import confusion_matrix<br>
+print(classification_report(y_test_data, predictions))<br>
+print(confusion_matrix(y_test_data, predictions))<br>
+  </p>
+<a href="analyticsvidhya.com/blog/2021/04/beginners-guide-to-decision-tree-classification-using-python/">Link</a>
+
+</body>
+</html>

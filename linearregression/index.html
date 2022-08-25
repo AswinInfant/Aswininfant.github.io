@@ -1,0 +1,253 @@
+<html>
+<head>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="https://unpkg.com/mathjs/lib/browser/math.js"></script>
+
+
+
+<style>
+
+</style>
+
+    <script type="text/javascript">
+      google.charts.load('current', {packages: ['corechart', 'line']});
+google.charts.setOnLoadCallback(drawBasic);
+
+function drawBasic() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('number', 'X');
+      data.addColumn('number', 'Y');
+      var xyx=[[49,124],[69,95],[89,71],[99,45],[109,18]]
+      data.addRows(xyx);
+
+      var options = {
+        hAxis: {
+          title: 'X'
+        },
+        vAxis: {
+          title: 'Y'
+        },
+        pointsVisible: true,
+        'legend': 'none'
+      };
+
+      var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+
+      chart.draw(data, options);
+    }
+
+
+
+
+
+    
+    </script>
+
+</head>
+<body>
+<p>The line graph for the given data set:</p><a href="samp.csv" target="blank">click to view the sample dataset</a>
+  <div id="chart_div" style="width: 50%; height: 50%; margin: 0 auto"></div>
+<input type="text" id="key"placeholder="Enter the value of x:">
+<button onclick="ca1()">Click to see the answer</button>
+
+<p>Least square regression line:<b> f(x)= b + mx</b></p>
+<p>Let the points be in the form <b>(x1 , y1) , (x2 , y2) , ... (xn , yn)</b></p>
+<img src="eq.png"><b>Y=XA+E&emsp;&emsp;||&emsp;&emsp;A=(X<sup>T</sup> X)<sup>-1</sup> X<sup>T</sup>Y&emsp;&emsp;||</b>&emsp;&emsp;Sum of the square of the errors:
+<b>E<sup>T</sup> E </b>
+  <script>
+
+function multiply(a, b) {
+  var aNumRows = a.length, aNumCols = a[0].length,
+      bNumRows = b.length, bNumCols = b[0].length,
+      m = new Array(aNumRows);  // initialize array of rows
+  for (var r = 0; r < aNumRows; ++r) {
+    m[r] = new Array(bNumCols); // initialize the current row
+    for (var c = 0; c < bNumCols; ++c) {
+      m[r][c] = 0;             // initialize the current cell
+      for (var i = 0; i < aNumCols; ++i) {
+        m[r][c] += a[r][i] * b[i][c];
+      }
+    }
+  }
+  return m;
+}
+
+function display(m) {
+  for (var r = 0; r < m.length; ++r) {
+    document.write('&nbsp;&nbsp;'+m[r].join(' ')+'<br />');
+  }
+}
+
+function ca1(){
+	var key=document.getElementById('key').value;
+	ca(key);
+}
+function ca(key){
+
+var Y=[[124],[95],[71],[45],[18] ];
+var XX=[[49],[69],[89],[99],[109]]
+var X=[[1,49],[1,69],[1,89],[1,99],[1,109]];
+document.write('<br />X Matrix:<br />');
+display(XX);
+document.write('<br />Y Matrix:<br />');
+display(Y);
+
+
+
+var a1=math.transpose(X);
+var a2=multiply(a1,X);
+var a3=math.inv(a2);
+
+var a4=multiply(a1,Y);
+var a5=multiply(a3,a4);
+var a6=math.round(a5,1);
+
+
+var a7=a6[0];
+var a8=a6[1];
+     document.write('<br />&nbsp;&nbsp;Equation is:f(x)= '+a7+'+('+a8+')(x)'+'<br />');
+     var a9=(a8*key);
+     var a10=math.add(a7,a9);
+     var a10=math.round(a10,1);
+       document.write('<br />&nbsp;&nbsp;f(x) value for the entered x value is:'+a10+'<br />');
+       document.write('<br />f(x) matrix for the Y matrix with the linear regression equation:<br />');
+       var a11;var a12,a13;var fx=[];
+       for(var j=0;j<Y.length;++j)
+       {
+       	a11=a8*XX[j];
+       	a12=math.add(a7,a11);
+       	a13=math.round(a12,4);
+       	fx.push(a13);
+       }
+       display(fx);
+       var a14=math.subtract(Y,fx);
+       document.write('<br />E Matrix-Error between the given Y values and the f(x) values:<br />');
+       display(a14);
+
+       var a15=multiply(math.transpose(a14),a14);
+       document.write('<br />Sum of the squares of the errors:<br />');
+       display(a15);
+
+        var a = document.createElement('a');
+        var link = document.createTextNode("Click here to go to the home page"); 
+        a.appendChild(link);  
+          
+              a.href = "index.html"
+              document.body.appendChild(a);  
+
+}
+
+
+function sample(){
+
+	var csv = '"x", "y", "z"\n12.3, 2.3, 8.7\n4.5, 1.2, -5.6\n';
+    var array = csv2array(csv);
+    var l=array.length;
+    for (var r = 0; r < array.length; ++r) {
+    document.write('&nbsp;&nbsp;'+array[r]+'<br />');
+  }
+}
+
+
+function csv2array(data, delimeter) {
+  // Retrieve the delimeter
+  if (delimeter == undefined) 
+    delimeter = ',';
+  if (delimeter && delimeter.length > 1)
+    delimeter = ',';
+
+  // initialize variables
+  var newline = '\n';
+  var eof = '';
+  var i = 0;
+  var c = data.charAt(i);
+  var row = 0;
+  var col = 0;
+  var array = new Array();
+
+  while (c != eof) {
+    // skip whitespaces
+    while (c == ' ' || c == '\t' || c == '\r') {
+      c = data.charAt(++i); // read next char
+    }
+    
+    // get value
+    var value = "";
+    if (c == '\"') {
+      // value enclosed by double-quotes
+      c = data.charAt(++i);
+      
+      do {
+        if (c != '\"') {
+          // read a regular character and go to the next character
+          value += c;
+          c = data.charAt(++i);
+        }
+        
+        if (c == '\"') {
+          // check for escaped double-quote
+          var cnext = data.charAt(i+1);
+          if (cnext == '\"') {
+            // this is an escaped double-quote. 
+            // Add a double-quote to the value, and move two characters ahead.
+            value += '\"';
+            i += 2;
+            c = data.charAt(i);
+          }
+        }
+      }
+      while (c != eof && c != '\"');
+      
+      if (c == eof) {
+        throw "Unexpected end of data, double-quote expected";
+      }
+
+      c = data.charAt(++i);
+    }
+    else {
+      // value without quotes
+      while (c != eof && c != delimeter && c!= newline && c != ' ' && c != '\t' && c != '\r') {
+        value += c;
+        c = data.charAt(++i);
+      }
+    }
+
+    // add the value to the array
+    if (array.length <= row) 
+      array.push(new Array());
+    array[row].push(value);
+    
+    // skip whitespaces
+    while (c == ' ' || c == '\t' || c == '\r') {
+      c = data.charAt(++i);
+    }
+
+    // go to the next row or column
+    if (c == delimeter) {
+      // to the next column
+      col++;
+    }
+    else if (c == newline) {
+      // to the next row
+      col = 0;
+      row++;
+    }
+    else if (c != eof) {
+      // unexpected character
+      throw "Delimiter expected after character " + i;
+    }
+    
+    // go to the next character
+    c = data.charAt(++i);
+  }  
+  
+  return array;
+}
+
+  </script>
+
+  </body>
+
+</html>
