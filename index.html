@@ -22,7 +22,9 @@
 <style>
 :root {
   --blue: #051e3d;
-  --white: #fae1c2;
+  --blue-1:#364D69;
+  --white: #98ABBF;
+  --white-1: #C9DAEA;
 }
   *{
     box-sizing: border-box;
@@ -51,6 +53,8 @@ body {
   margin: 0;
   font-family:  Verdana;
   background-color: var(--blue);
+ /* For browsers that do not support gradients */
+  background-image: linear-gradient(var(--blue), var(--blue-1));
    justify-content: center;
    color:var(--white);
 }
@@ -144,7 +148,7 @@ padding: 30px 15px;
 .intro-quote {
   padding: 15px;
   text-align: center;
-  background-color:var(--blue);
+  --background-color:var(--blue);
   background-size: cover;
   color: var(--white);
  font-family: Dancing Script;
@@ -494,7 +498,7 @@ box-shadow:0 0 40px #818181;
 }
 
 .experience .title {
-  color: grey;
+  color: var(--white);
 }
 
 
@@ -931,8 +935,14 @@ button {
 
 }
 
+#more_1 {display: none;}
+#more_2 {display: none;}
 
-
+#myBtn_read,#myBtn_read_1 {
+  color: black;
+  background-color: grey;
+  border-radius: 20px;
+}
 
 
 
@@ -947,7 +957,7 @@ button {
 
 <div class="topnav" id="myTopnav">
   
-<a href="https://aswininfant.me/" class="lo"><img src="llll.png" id="logotheme" style="width:60px" ></a>
+<a href="https://aswinjosephinfant.github.io/" class="lo"><img src="llll.png" id="logotheme" style="width:60px" ></a>
 <a class="theme"><img src="moon5.png"  id="theme" style="width:20px" onclick="myFunction()"></a>
   <a class="cool-link" href="#contactme" >Contact</a>
   <a class="cool-link" href="#works">Projects</a>
@@ -1279,11 +1289,13 @@ button {
   </div>
   <div class="abtme reveal">
      <h2><br>Hello Folks</h2>
-     <p>In case we haven't met, I am <strong>Aswin Infant Joseph</strong>,<br>currently pursuing Bachelors in Computer Science Engineering.<br>I love to solve problems and figuring out <br>the most elegant way to write a line of code.<br>Coding, Web Development, Designing are <br>the things I love to do.</p>
+     <p>
+      In case we haven't met, I am <strong>Aswin Infant Joseph</strong>,<br>highly motivated Data Analyst, specializing in data analysis,<br>data lineage,  ETL pipelines and data quality.Proficient in utilizing<br> cutting-edge tools for data cleansing and validation,<br> with a keen eye for detail and a strong ability <br>to communicate complex concepts to diverse stakeholders.<br>Dedicated to driving data integrity and optimizing processes,<br> I am committed to leveraging my analytical skills to contribute <br>meaningfully to data-driven initiatives and organizational success.</p>
+    <a href="resume.pdf" target="_blank" ><span class="btn ">Resume</span></a>
+      <a href="https://www.linkedin.com/in/aswininfant/" target="_blank" ><span class="btn1 ">Connect</span></a>
     </div>
 
-      <a href="resume.pdf" target="_blank" ><span class="btn ">Resume</span></a>
-      <a href="https://www.linkedin.com/in/aswininfant/" target="_blank" ><span class="btn1 ">Connect</span></a>
+     
 </div>
 
 <section id="education"></section>
@@ -1296,8 +1308,8 @@ button {
       
       <div class="container">
         <h2>Sri Venkateswara College of Engineering</h2>
-        <p class="title">2018-Present</p>
-        <p>B.E CSE:9.09 GPA</p>
+        <p class="title">2018-2022</p>
+        <p>B.E CSE:9.13 GPA</p>
         
       </div>
     </div>
@@ -1340,17 +1352,35 @@ button {
     <div class="card">
       
       <div class="container">
-        <h2>Software Development Intern</h2>
+        <h2>Associate - Risk Assurance Compliance & Analytics(Advisory)</h2>
         <p style="text-align:left;" class="title">
-           Devathon
+           PricewaterhouseCoopers AC Kolkata
           <span style="float:right;" class="title">
-            June 2021 - May 2022
+            July 2022 - Present
           </span>
         </p>
         <p>
-          <li>Developed and maintained API's using GraphQl as per requirements</li>
-          <li>Tested different modules and fixed errors and updated them according to the client's requirements</li>
-          
+          <li>Developed a Python-based parser to extract data from large banking block reports, which was an
+integral part of the overall ETL migration process for an AML project</li>
+          <li>Demonstrated proficiency in developing multiple ETL pipeline flows using SSIS, which played a pivotal
+role in the overall success of the ETL migration project.</li>
+
+  <span id="dots_1">...</span><span id="more_1">
+  <li>Thoroughly conducted User Acceptance Testing (UAT) on both the data and ETL flow that was
+developed, ensuring that all aspects of the project met the required specifications and standards.</li>
+  <li>Conducted Segmentation Analysis on customer data for Suspicious Activity Monitoring purposes,
+utilizing advanced techniques to detect potential fraudulent activity and ensure compliance with
+regulatory requirements.</li>
+  <li>Developed SQL scripts to conduct Data Quality checks, ensuring data consistency and accuracy.
+Prepared end to end Data Quality and Data Profiling Documentations.</li>
+  <li>Developed a Python parser to facilitate the ingestion of client data into Actimize using the Easy Ingest
+API. Achieved seamless integration between the parser and Actimize, enabling smooth and automated
+data transfer for enhanced analysis and risk management.</li>
+  <li>Conducted Customer Risk Rating using regression analysis to enhance risk management strategies.
+Developed statistical models to predict customer risk ratings and collaborated with cross-functional
+teams to implement risk based ratings for Customer profiling.</li>
+  </span>
+<button onclick="myFunction_1()" id="myBtn_read">Read more</button> 
         </p>
         
       </div>
@@ -1361,17 +1391,29 @@ button {
     <div class="card">
       
       <div class="container">
-        <h2>Web Development Intern</h2>
+        <h2>Software Development Intern</h2>
         <p style="text-align:left;" class="title">
-           The Sparks Foundation
+           Devathon
           <span style="float:right;" class="title">
-            Dec 2020 - Jan 2021
+            June 2021 - May 2022
           </span>
         </p>
         <p>
-          <li>A remote (online) web development internship</li>
-          <li>Developed a banking application based on the given requirements</li>
-          
+          <li>Developed and maintained APIs for diverse modules using AWS DynamoDB and GraphQl.</li>
+          <li>Improved the latency and response time of APIs by optimizing database queries and implementing
+caching mechanisms, resulting in a 50% reduction in API response time</li>
+
+  <span id="dots_2">...</span><span id="more_2">
+  <li>Demonstrated proficiency in Back End development with NodeJS and ExpressJS, and Front End
+development with AngularJS</li>
+  <li>Utilized cloud computing technologies such as AWS Lambda, AWS S3, and AWS EventBridge for
+project needs</li>
+  <li>Collaborated with teams to ensure proper implementation and integration of version control and API
+testing practices</li>
+  <li>Maintained documentation throughout the software development life cycle, including updates to
+Functional Requirement Documents, and third-party integration research.</li>
+  </span>
+<button onclick="myFunction_2()" id="myBtn_read_1">Read more</button> 
         </p>
         
       </div>
@@ -1394,13 +1436,13 @@ button {
   <img src="js.png" title="JavaScript">
   <img src="sql.png" title="SQL">
   <img src="mongodb.png" title="MongoDB">
+  <img src="python.png" title="Python">
 <img src="nodejs.png" title="NodeJS">
 <img src="expjs.png" title="ExpressJS">
 <img src="react.png" title="ReactJS">
 <img src="graphql.png" title="GraphQL">
-<img src="ps.png" title="Photoshop">
- <img src="xd.png" title="Adobe XD">
- <img src="adobeai.png" title="Illustrator">
+<img src="tableau-1.png" title="Tableau">
+<img src="alteryx.png" title="Alteryx">
 </div >
 </div>
 
@@ -1413,13 +1455,13 @@ button {
       
       <div class="cardcard">
         <div class="card-headercard">
-          <h1>Boosted Board</h1>
+          <h1>Food Classification</h1>
         </div>
         <div class="card-bodycard">
           <p>
-            A front-end product webpage submitted in a competition<br><br><br> HTML // CSS // Javascript<br><br>
+            An application that identifies the input food image and gives the relevant nutrition details<br><br><br> Python // CNN // Express JS // Node JS <br><br>
           </p>
-          <a href="https://www.aswininfant.ml/boosted" target="_blank" class="btn" style="color: var(--white);">View</a>
+          <a href="https://github.com/aswinjosephinfant/food-classification" target="_blank" class="btn" style="color: var(--white);">View</a>
         </div>
       </div>
       
@@ -1427,39 +1469,37 @@ button {
       
       <div class="cardcard">
         <div class="card-headercard">
-          <h1>Sorting Visualizer</h1>
+          <h1>Boosted Board</h1>
         </div>
         <div class="card-bodycard">
           <p>
-            Visualization of the different sorting algorithms<br><br><br> HTML // CSS // Javascript // Algorithms
+            A front-end product webpage submitted in a competition<br><br><br><br> HTML // CSS // Javascript<br><br>
           </p>
-          <a href="https://www.aswininfant.ml/SortingVisualizer" target="_blank" class="btn" style="color: var(--white);">View</a>
-          
+          <a href="https://aswinjosephinfant.github.io/boosted" target="_blank" class="btn" style="color: var(--white);">View</a>
         </div>
       </div>
 
         <div class="cardcard">
         <div class="card-headercard">
-          <h1>Dictionary Tool</h1>
+          <h1>Sorting Visualizer</h1>
         </div>
         <div class="card-bodycard">
           <p>
-           Command line dictionary tool using foutytwowords words api<br><br><br> NodeJS // Javascript 
-           <br><br>
+            Visualization of the different sorting algorithms<br><br><br><br> HTML // CSS // Javascript // Algorithms<br><br>
           </p>
-          <a href="https://github.com/aswinjosephinfant/Command-Line-Dictionary-Tool" target="_blank" class="btn" style="color: var(--white);">View</a>
+          <a href="https://aswinjosephinfant.github.io/SortingVisualizer" target="_blank" class="btn" style="color: var(--white);">View</a>
         </div>
       </div>
+
       <div class="cardcard">
         <div class="card-headercard">
-          <h1>Word Dictionary API</h1>
+          <h1>Tableau Dashboards</h1>
         </div>
         <div class="card-bodycard">
           <p>
-           An App that provides word dictionary APIs<br><br><br> NodeJS // ExpressJS // SQL 
-           <br><br>
+            Tableau Public profile showcasing various dashboards developed<br><br><br> Tableau<br><br>
           </p>
-          <a href="https://github.com/aswinjosephinfant/word-api" target="_blank" class="btn" style="color: var(--white);">View</a>
+          <a href="https://public.tableau.com/app/profile/aswin.joseph3458" target="_blank" class="btn" style="color: var(--white);">View</a>
         </div>
       </div>
 
@@ -1567,9 +1607,11 @@ var root = document.querySelector(':root');
 var x =getComputedStyle(document.documentElement).getPropertyValue('--blue');
 
 console.log(x);
-    if (x=="#fae1c2") { 
+    if (x=="#98ABBF") { 
     root.style.setProperty('--blue', '#051e3d');
-    root.style.setProperty('--white', '#fae1c2');
+    root.style.setProperty('--white', '#98ABBF');
+    root.style.setProperty('--blue-1', '#364D69');
+    root.style.setProperty('--white-1', '#C9DAEA');
     document.getElementById("theme").src = "moon5.png";
     document.getElementById("logotheme").src = "llll.png";
     document.getElementById("theme1").src = "moon5.png";
@@ -1578,8 +1620,10 @@ console.log(x);
       document.getElementById("theme").src = "moon6.png";
       document.getElementById("theme1").src = "moon6.png";
       document.getElementById("logotheme").src = "logolight.png";
-      root.style.setProperty('--blue', '#fae1c2');
+      root.style.setProperty('--blue', '#98ABBF');
       root.style.setProperty('--white', '#051e3d');
+      root.style.setProperty('--blue-1', '#C9DAEA');
+      root.style.setProperty('--white-1', '#364D69');
 }
 }
 
@@ -1610,7 +1654,37 @@ window.addEventListener('scroll', reveal);
       }
     }
 
+function myFunction_1() {
+  var dots = document.getElementById("dots_1");
+  var moreText = document.getElementById("more_1");
+  var btnText = document.getElementById("myBtn_read");
 
+  if (dots.style.display === "none") {
+    dots.style.display = "inline";
+    btnText.innerHTML = "Read more"; 
+    moreText.style.display = "none";
+  } else {
+    dots.style.display = "none";
+    btnText.innerHTML = "Read less"; 
+    moreText.style.display = "inline";
+  }
+}
+
+function myFunction_2() {
+  var dots = document.getElementById("dots_2");
+  var moreText = document.getElementById("more_2");
+  var btnText = document.getElementById("myBtn_read_1");
+
+  if (dots.style.display === "none") {
+    dots.style.display = "inline";
+    btnText.innerHTML = "Read more"; 
+    moreText.style.display = "none";
+  } else {
+    dots.style.display = "none";
+    btnText.innerHTML = "Read less"; 
+    moreText.style.display = "inline";
+  }
+}
 
 </script>
 </body>
